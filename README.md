@@ -1,4 +1,7 @@
-TO-DO-List app with
-Front-end : React.js
-Back-end : Golang
-Database : MongoDB
+# ⚛ TO-DO-List App ⚛
+
+## Front-end : React.js
+
+## Back-end : Golang
+
+## Database : MongoDB
