@@ -1,4 +1,4 @@
-# ⚛ TO-DO-List App ⚛
+# 🎞 To-Do-List App 🎞
 
 ## Front-end : React.js
 
