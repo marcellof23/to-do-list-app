@@ -20,9 +20,12 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
 	}
 	return todos.map((todo, idx) => (
 		<div
-			className={todo.isComplete ? "todo-row complete" : "todo:row"}
+			className={todo.isComplete ? "todo-row complete" : "todo-row"}
 			key={idx}>
-			<div key={todo.id} onClick={() => completeTodo(todo.id)}>
+			<div
+				key={todo.id}
+				onClick={() => completeTodo(todo.id)}
+				className="todo-text">
 				{todo.text}
 			</div>
 			<div className="icons">

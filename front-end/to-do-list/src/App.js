@@ -6,7 +6,6 @@ function App() {
 	return (
 		<div className="todo-app">
 			<TodoList />
-			<h1>Hello!</h1>
 		</div>
 	);
 }

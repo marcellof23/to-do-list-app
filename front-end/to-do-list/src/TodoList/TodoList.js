@@ -35,8 +35,11 @@ function TodoList() {
 
 	return (
 		<div className="todo-app">
-			<h1>Hai lagi ngapain?</h1>
+			<h1>Add you plan below!</h1>
 			<TodoForm onSubmit={addTodo} />
+			<h3 className="Click-plan">
+				Click on the plan if you have completed the task!
+			</h3>
 			<Todo
 				todos={todos}
 				completeTodo={completeTodo}
