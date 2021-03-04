@@ -4,4 +4,4 @@
 
 ## Back-end : Golang
 
-## Database : MongoDB
+## Database : GORM
