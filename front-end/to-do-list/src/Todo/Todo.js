@@ -15,12 +15,9 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
 			value: "",
 		});
 	};
-	console.log("woi");
-	console.log(edit.id);
 	if (edit.id) {
-		return <TodoForm onSubmit={submitUpdate} />;
+		return <TodoForm onSubmit={(edits) => submitUpdate(edits)} />;
 	}
-	console.log("taek");
 	return todos.map((todo, idx) => (
 		<div
 			className={todo.isComplete ? "todo-row complete" : "todo-row"}

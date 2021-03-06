@@ -7,9 +7,8 @@ function TodoList() {
 	const addTodo = (todo) => {
 		if (!todo.text || /^\s*$/.test(todo.text)) return;
 
-		setTodos([todo, ...todos]);
+		setTodos([...todos, todo]);
 	};
-	console.log("INI DARI TODOLIST");
 	const completeTodo = (id) => {
 		let updatedTodos = todos.map((todo) => {
 			if (todo.id === id) {
@@ -17,12 +16,10 @@ function TodoList() {
 			}
 			return todo;
 		});
-		console.log(updatedTodos);
 		setTodos(updatedTodos);
 	};
-	console.log(todos);
 	const removeTodo = (id) => {
-		const removed = [...todos].filter((td) => td.id !== id);
+		const removed = todos.filter((td) => td.id !== id);
 		setTodos(removed);
 	};
 
