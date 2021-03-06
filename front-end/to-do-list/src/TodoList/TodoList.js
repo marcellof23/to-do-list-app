@@ -9,7 +9,7 @@ function TodoList() {
 
 		setTodos([todo, ...todos]);
 	};
-
+	console.log("INI DARI TODOLIST");
 	const completeTodo = (id) => {
 		let updatedTodos = todos.map((todo) => {
 			if (todo.id === id) {
@@ -17,9 +17,10 @@ function TodoList() {
 			}
 			return todo;
 		});
+		console.log(updatedTodos);
 		setTodos(updatedTodos);
 	};
-
+	console.log(todos);
 	const removeTodo = (id) => {
 		const removed = [...todos].filter((td) => td.id !== id);
 		setTodos(removed);
@@ -27,7 +28,6 @@ function TodoList() {
 
 	const updateTodo = (id, newVal) => {
 		if (!newVal.text || /^\s*$/.test(newVal.text)) return;
-
 		setTodos((prevVal) =>
 			prevVal.map((item) => (item.id === id ? newVal : item))
 		);
@@ -38,7 +38,7 @@ function TodoList() {
 			<h1>Add you plan below!</h1>
 			<TodoForm onSubmit={addTodo} />
 			<h3 className="Click-plan">
-				Click on the plan if you have completed the task!
+				Click on the text if you have completed the task!
 			</h3>
 			<Todo
 				todos={todos}

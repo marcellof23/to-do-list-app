@@ -1,29 +1,28 @@
 package main
 
 import (
-	"io"
-	"net/http"
-	"github.com/gorilla/mux"
-	"github.com/sirupsen/logrus"
-	"github.com/gin-gonic/gin"
+	Config "back-end/Config"
+	Routes "back-end/Routes"
+	Models "back-end/models"
+	"fmt"
+
+	"github.com/jinzhu/gorm"
 )
 
-func Healthz(w http.ResponseWriter, r *http Request){
-	log.Info("API HEALTH IS GOOD")
-	w.Header().Set("Content-Type","application/json")
-	io.WriteString(w,`{"alive": true}`)
-}
+var err error
 
-func init() {
-	log.SetFormatter(&log.TextFormatter{})
-	log.SetReportCaller(true)
-}
 func main() {
-	r := gin.Default()
 
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "hello world"})
-	})
+	Config.DB, err = gorm.Open("mysql", Config.DbURL(Config.BuildDBConfig()))
 
+	if err != nil {
+		fmt.Println("status: ", err)
+	}
+
+	defer Config.DB.Close()
+	Config.DB.AutoMigrate(&Models.Todo{})
+
+	r := Routes.SetupRouter()
+	// running
 	r.Run()
 }
