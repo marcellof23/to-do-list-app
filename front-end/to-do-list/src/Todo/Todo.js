@@ -16,7 +16,6 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
 		});
 	};
 	if (edit.id) {
-		console.log("");
 		return <TodoForm onSubmit={(edits) => submitUpdate(edits)} />;
 	}
 	return todos.map((todo, idx) => (
